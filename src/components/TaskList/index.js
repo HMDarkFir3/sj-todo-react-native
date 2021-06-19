@@ -9,11 +9,12 @@ import { styles } from "./styles";
 import { Feather } from "@expo/vector-icons";
 
 export default function TaskList(props) {
-  const { name } = props.data;
+  const { name, key } = props.data;
+  const { deleteItem } = props;
 
   return (
     <View style={styles.container}>
-      <TouchableOpacity style={styles.tasks}>
+      <TouchableOpacity style={styles.tasks} onPress={() => deleteItem(key)}>
         <Feather name="trash" color="#ffffff" size={24} />
       </TouchableOpacity>
 

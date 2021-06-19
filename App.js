@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   FlatList,
   Keyboard,
+  ActivityIndicator,
 } from "react-native";
 
 //Firebase
@@ -24,6 +25,7 @@ import { Feather } from "@expo/vector-icons";
 export default function App() {
   const [newTask, setNewTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function loadTask() {
@@ -44,6 +46,7 @@ export default function App() {
         });
     }
 
+    setLoading(false);
     loadTask();
   }, []);
 
@@ -65,6 +68,10 @@ export default function App() {
     setNewTask("");
   }
 
+  async function handleDelete(key) {
+    await firebase.database().ref("tasks").child(key).remove();
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
@@ -83,10 +90,14 @@ export default function App() {
         </TouchableOpacity>
       </View>
 
+      {loading && <ActivityIndicator size="large" color="#121212" />}
+
       <FlatList
         data={tasks}
         keyExtractor={(item) => item.key}
-        renderItem={({ item }) => <TaskList data={item} />}
+        renderItem={({ item }) => (
+          <TaskList data={item} deleteItem={handleDelete} />
+        )}
       />
     </View>
   );

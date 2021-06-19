@@ -1,6 +1,6 @@
 //React
 import { StatusBar } from "expo-status-bar";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import {
   View,
   TextInput,
@@ -23,9 +23,14 @@ import { styles } from "./src/styles/styles";
 import { Feather } from "@expo/vector-icons";
 
 export default function App() {
+  //State
   const [newTask, setNewTask] = useState("");
   const [tasks, setTasks] = useState([]);
+  const [key, setKey] = useState("");
   const [loading, setLoading] = useState(true);
+
+  //Ref
+  const inputRef = useRef(null);
 
   useEffect(() => {
     async function loadTask() {
@@ -56,6 +61,19 @@ export default function App() {
       return;
     }
 
+    if (key !== "") {
+      await firebase.database().ref("tasks").child(key).update({
+        name: newTask,
+      });
+
+      Keyboard.dismiss();
+
+      setNewTask("");
+      setKey("");
+
+      return;
+    }
+
     let send = await firebase.database().ref("tasks");
     let uid = send.push().key;
 
@@ -66,6 +84,13 @@ export default function App() {
     Keyboard.dismiss();
 
     setNewTask("");
+  }
+
+  function handleEdit(data) {
+    setNewTask(data.name);
+    setKey(data.key);
+
+    inputRef.current.focus();
   }
 
   async function handleDelete(key) {
@@ -83,6 +108,7 @@ export default function App() {
           underlineColorAndroid="transparent"
           onChangeText={(t) => setNewTask(t)}
           value={newTask}
+          ref={inputRef}
         />
 
         <TouchableOpacity style={styles.buttonAdd} onPress={handleAdd}>
@@ -96,7 +122,11 @@ export default function App() {
         data={tasks}
         keyExtractor={(item) => item.key}
         renderItem={({ item }) => (
-          <TaskList data={item} deleteItem={handleDelete} />
+          <TaskList
+            data={item}
+            editItem={handleEdit}
+            deleteItem={handleDelete}
+          />
         )}
       />
     </View>

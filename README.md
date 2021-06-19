@@ -5,13 +5,13 @@
 </h1>
 
 <p align="center" >
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/hmdarkfir3/ToDoList" />
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/hmdarkfir3/ToDoList_Firebase" />
   
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/hmdarkfir3/ToDoList">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/hmdarkfir3/ToDoList_Firebase">
   
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/hmdarkfir3/ToDoList">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/hmdarkfir3/ToDoList_Firebase">
   
-  <img alt="Repository issues size" src="https://img.shields.io/github/issues/hmdarkfir3/ToDoList">
+  <img alt="Repository issues size" src="https://img.shields.io/github/issues/hmdarkfir3/ToDoList_Firebase">
   
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg" />
 </p>
@@ -39,10 +39,10 @@ Para clonar e executar este aplicativo, você precisará de [Git](https://git-sc
 
 ```bash
 # Clone este repositório
-$ git clone https://github.com/HMDarkFir3/ToDoList.git
+$ git clone https://github.com/HMDarkFir3/ToDoList_Firebase.git
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd ToDoList
+$ cd ToDoList_Firebase
 ```
 
 ### 🎲 Rodando a Aplicação

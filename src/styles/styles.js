@@ -1,3 +1,4 @@
+//Style
 import { StyleSheet } from "react-native";
 import { getStatusBarHeight } from "react-native-iphone-x-helper";
 
@@ -20,6 +21,8 @@ export const styles = StyleSheet.create({
     fontSize: 17,
 
     borderWidth: 1,
+    borderBottomLeftRadius: 10,
+    borderTopLeftRadius: 10,
     borderColor: "#121212",
   },
   buttonAdd: {
@@ -32,5 +35,7 @@ export const styles = StyleSheet.create({
     paddingRight: 14,
 
     backgroundColor: "#121212",
+    borderBottomRightRadius: 10,
+    borderTopRightRadius: 10,
   },
 });

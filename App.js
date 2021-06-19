@@ -3,6 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import React, { useState, useEffect, useRef } from "react";
 import {
   View,
+  Text,
   TextInput,
   TouchableOpacity,
   FlatList,
@@ -97,9 +98,26 @@ export default function App() {
     await firebase.database().ref("tasks").child(key).remove();
   }
 
+  function cancelEdit() {
+    setKey("");
+    setNewTask("");
+
+    Keyboard.dismiss();
+  }
+
   return (
     <View style={styles.container}>
       <StatusBar style="auto" />
+
+      {key.length > 0 && (
+        <View style={styles.containerEditMessage}>
+          <TouchableOpacity onPress={cancelEdit}>
+            <Feather name="x-circle" color="#ff0000" size={24} />
+          </TouchableOpacity>
+
+          <Text style={styles.editText}>Você está editando uma tarefa!</Text>
+        </View>
+      )}
 
       <View style={styles.containerTask}>
         <TextInput

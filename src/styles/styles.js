@@ -8,6 +8,16 @@ export const styles = StyleSheet.create({
     marginTop: getStatusBarHeight() + 25,
     marginHorizontal: 10,
   },
+  containerEditMessage: {
+    flexDirection: "row",
+
+    marginBottom: 10,
+  },
+  editText: {
+    paddingLeft: 10,
+
+    fontSize: 18,
+  },
   containerTask: {
     flexDirection: "row",
   },

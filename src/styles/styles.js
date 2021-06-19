@@ -1,0 +1,36 @@
+import { StyleSheet } from "react-native";
+import { getStatusBarHeight } from "react-native-iphone-x-helper";
+
+export const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: getStatusBarHeight() + 25,
+    marginHorizontal: 10,
+  },
+  containerTask: {
+    flexDirection: "row",
+  },
+  input: {
+    flex: 1,
+    height: 40,
+
+    marginBottom: 10,
+    padding: 10,
+
+    fontSize: 17,
+
+    borderWidth: 1,
+    borderColor: "#121212",
+  },
+  buttonAdd: {
+    height: 40,
+
+    alignItems: "center",
+    justifyContent: "center",
+
+    paddingLeft: 14,
+    paddingRight: 14,
+
+    backgroundColor: "#121212",
+  },
+});

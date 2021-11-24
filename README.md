@@ -5,9 +5,11 @@
 </h1>
 
 <p align="center" >
-  <img alt="Repository size" src="https://img.shields.io/github/repo-size/hmdarkfir3/sj-todo?style=for-the-badge">
+  <img alt="Repository size" src="https://img.shields.io/github/repo-size/hmdarkfir3/sj-todo-react-native
+?style=for-the-badge">
   
-  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/hmdarkfir3/sj-todo?style=for-the-badge">
+  <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/hmdarkfir3/sj-todo-react-native
+?style=for-the-badge">
   
   <img alt="License" src="https://img.shields.io/badge/license-MIT-blue.svg?style=for-the-badge" />
 </p>
